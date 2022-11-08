@@ -1,18 +1,18 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from 'react';
 
-import "./styles.css";
+import './styles.css';
 
-import { Posts } from "../../components/Posts";
-import { loadPosts } from "../../useful/load-post";
-import { Button } from "../../components/Button";
-import { TextInput } from "../../components/TextInput";
+import { Posts } from '../../components/Posts';
+import { loadPosts } from '../../useful/load-post';
+import { Button } from '../../components/Button';
+import { TextInput } from '../../components/TextInput';
 
 export const Home = () => {
   const [posts, setPosts] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
   const [page, setPage] = useState(0);
   const [postsPerPage] = useState(3);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
 
   const noMorePosts = page + postsPerPage >= allPosts.length;
 
@@ -62,9 +62,7 @@ export const Home = () => {
       {filteredPosts.length === 0 && <p>Não existem posts :(</p>}
 
       <div className="button-container">
-        {!searchValue && (
-          <Button disabled={noMorePosts} onClick={loadMorePosts} />
-        )}
+        {!searchValue && <Button disabled={noMorePosts} onClick={loadMorePosts} />}
       </div>
     </section>
   );
